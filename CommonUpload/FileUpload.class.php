@@ -115,16 +115,12 @@
 				$this->errorMess=$this->getError();
 				return false;
 			}
-
-			
 			$name=$_FILES[$fileField]['name'];
 			$tmp_name=$_FILES[$fileField]['tmp_name'];
 			$size=$_FILES[$fileField]['size'];
 			$error=$_FILES[$fileField]['error'];
-
 			if(is_Array($name)){
 				$errors=array();
-
 				for($i=0; $i<count($name); $i++){
 					if($this->setFiles($name[$i], $tmp_name[$i], $size[$i], $error[$i])){
 						if(!$this->checkFileSize() || !$this->checkFileType()){
@@ -139,10 +135,8 @@
 					if(!$return)
 						$this->setFiles();
 				}
-
 				if($return){
 					$fileNames=array();
-
 					for($i=0; $i<count($name); $i++){
 						if($this->setFiles($name[$i], $tmp_name[$i], $size[$i], $error[$i])){
 							$this->setNewFileName();
